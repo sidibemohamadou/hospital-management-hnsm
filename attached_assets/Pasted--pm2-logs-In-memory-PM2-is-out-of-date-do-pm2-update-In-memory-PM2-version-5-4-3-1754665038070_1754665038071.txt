@@ -1,0 +1,66 @@
+ pm2 logs
+
+>>>> In-memory PM2 is out-of-date, do:
+>>>> $ pm2 update
+In memory PM2 version: 5.4.3
+Local PM2 version: 6.0.8
+
+[TAILING] Tailing last 15 lines for [all] processes (change the value with --lines option)
+/root/.pm2/pm2.log last 15 lines:
+PM2        | 2025-08-02T10:05:15: PM2 log: [PM2] Upgrade to version 6.0.8
+PM2        | 2025-08-03T10:05:15: PM2 log: [PM2] This PM2 is not UP TO DATE
+PM2        | 2025-08-03T10:05:15: PM2 log: [PM2] Upgrade to version 6.0.8
+PM2        | 2025-08-04T10:05:15: PM2 log: [PM2] This PM2 is not UP TO DATE
+PM2        | 2025-08-04T10:05:15: PM2 log: [PM2] Upgrade to version 6.0.8
+PM2        | 2025-08-05T10:05:15: PM2 log: [PM2] This PM2 is not UP TO DATE
+PM2        | 2025-08-05T10:05:15: PM2 log: [PM2] Upgrade to version 6.0.8
+PM2        | 2025-08-06T10:05:15: PM2 log: [PM2] This PM2 is not UP TO DATE
+PM2        | 2025-08-06T10:05:15: PM2 log: [PM2] Upgrade to version 6.0.8
+PM2        | 2025-08-07T10:05:15: PM2 log: [PM2] This PM2 is not UP TO DATE
+PM2        | 2025-08-07T10:05:15: PM2 log: [PM2] Upgrade to version 6.0.8
+PM2        | 2025-08-08T10:05:15: PM2 log: [PM2] This PM2 is not UP TO DATE
+PM2        | 2025-08-08T10:05:15: PM2 log: [PM2] Upgrade to version 6.0.8
+PM2        | 2025-08-08T10:54:39: PM2 log: App [hospital-management:1] starting in -cluster mode-
+PM2        | 2025-08-08T10:54:39: PM2 log: App [hospital-management:1] online
+
+/root/.pm2/logs/api-manegement-cemetery-error.log last 15 lines:
+0|api-mane | An operation failed because it depends on one or more records that were required but not found. No 'Tombe' record (needed to create or connect inlined relation for 'Defunt' record(s)) was found for a nested connect on one-to-one relation 'DefuntToTombe'.
+0|api-mane |     at ri.handleRequestError (/root/data/api-manegement-cemetery/node_modules/@prisma/client/src/runtime/RequestHandler.ts:228:13)
+0|api-mane |     at ri.handleAndLogRequestError (/root/data/api-manegement-cemetery/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)
+0|api-mane |     at ri.request (/root/data/api-manegement-cemetery/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)
+0|api-mane |     at l (/root/data/api-manegement-cemetery/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:862:24)
+0|api-mane |     at DefuntService.create (/root/data/api-manegement-cemetery/src/defunts/defunts.service.ts:48:22)
+0|api-mane |     at /root/data/api-manegement-cemetery/node_modules/@nestjs/core/router/router-execution-context.js:46:28
+0|api-mane |     at /root/data/api-manegement-cemetery/node_modules/@nestjs/core/router/router-proxy.js:9:17 {
+0|api-mane |   code: 'P2025',
+0|api-mane |   meta: {
+0|api-mane |     modelName: 'Defunt',
+0|api-mane |     cause: "No 'Tombe' record (needed to create or connect inlined relation for 'Defunt' record(s)) was found for a nested connect on one-to-one relation 'DefuntToTombe'."
+0|api-mane |   },
+0|api-mane |   clientVersion: '6.12.0'
+0|api-mane | }
+
+/root/.pm2/logs/api-manegement-cemetery-out.log last 15 lines:
+0|api-mane | test
+0|api-mane | Request GET: - /robots.txt
+0|api-mane | test
+0|api-mane | Request GET: - /
+0|api-mane | test
+0|api-mane | Request GET: - /
+0|api-mane | test
+0|api-mane | Request GET: - /favicon.ico
+0|api-mane | test
+0|api-mane | Request GET: - /
+0|api-mane | test
+0|api-mane | Request GET: - /
+0|api-mane | test
+0|api-mane | Request GET: - /
+0|api-mane | test
+
+/root/.pm2/logs/hospital-management-error-1.log last 15 lines:
+/root/.pm2/logs/hospital-management-out-1.log last 15 lines:
+1|hospital | 10:54:40 AM [express] serving on port 5000
+
+0|api-manegement-cemetery  | Request GET: - /
+0|api-manegement-cemetery  | test
+
