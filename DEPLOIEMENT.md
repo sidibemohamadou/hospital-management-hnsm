@@ -6,7 +6,7 @@ Ce guide vous accompagne étape par étape pour déployer votre application sur 
 
 - Git installé sur votre machine
 - Compte GitHub
-- Serveur Linux (Ubuntu/Debian recommandé)
+- Serveur Linux (Ubuntu/Debian, CentOS/RHEL supportés)
 - Node.js 18+ sur votre serveur
 
 ## 🚀 Étapes de Déploiement
@@ -62,8 +62,9 @@ cd hospital-management-hnsm
 ```
 
 ##### 2. Installation des dépendances système
+
+**Sur Ubuntu/Debian:**
 ```bash
-# Ubuntu/Debian
 sudo apt update
 sudo apt install -y curl git nginx
 
@@ -71,7 +72,19 @@ sudo apt install -y curl git nginx
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install -y nodejs
 
-# Installer PM2 (gestionnaire de processus)
+# Installer PM2
+sudo npm install -g pm2
+```
+
+**Sur CentOS/RHEL 10 Stream:**
+```bash
+sudo dnf update -y
+sudo dnf install -y curl git nginx
+
+# Installer Node.js 18+
+sudo dnf module install -y nodejs:18/common
+
+# Installer PM2
 sudo npm install -g pm2
 ```
 
@@ -101,13 +114,20 @@ pm2 startup
 ```
 
 ##### 5. Configuration de Nginx (Proxy inverse)
+
+**Sur Ubuntu/Debian:**
 ```bash
 # Créer la configuration Nginx
 sudo nano /etc/nginx/sites-available/hospital-management
-
-# Copiez cette configuration :
 ```
 
+**Sur CentOS/RHEL:**
+```bash
+# Créer la configuration Nginx
+sudo nano /etc/nginx/conf.d/hospital-management.conf
+```
+
+**Configuration Nginx (identique pour tous):**
 ```nginx
 server {
     listen 80;
@@ -127,6 +147,9 @@ server {
 }
 ```
 
+**Activation du site:**
+
+*Ubuntu/Debian:*
 ```bash
 # Activer le site
 sudo ln -s /etc/nginx/sites-available/hospital-management /etc/nginx/sites-enabled/
@@ -137,7 +160,19 @@ sudo nginx -t
 sudo systemctl restart nginx
 ```
 
+*CentOS/RHEL:*
+```bash
+# Supprimer la configuration par défaut
+sudo rm -f /etc/nginx/conf.d/default.conf
+
+# Tester et redémarrer Nginx
+sudo nginx -t
+sudo systemctl restart nginx
+```
+
 ### 3. Configuration du Pare-feu
+
+**Sur Ubuntu/Debian (UFW):**
 ```bash
 # Autoriser le trafic web
 sudo ufw allow 'Nginx Full'
@@ -145,13 +180,32 @@ sudo ufw allow ssh
 sudo ufw enable
 ```
 
+**Sur CentOS/RHEL (Firewalld):**
+```bash
+# Activer et configurer le pare-feu
+sudo systemctl enable --now firewalld
+sudo firewall-cmd --permanent --add-service=http
+sudo firewall-cmd --permanent --add-service=https
+sudo firewall-cmd --permanent --add-service=ssh
+sudo firewall-cmd --reload
+```
+
 ## 🔧 Configuration avec Base de Données PostgreSQL (Optionnel)
 
 Si vous voulez utiliser PostgreSQL au lieu de la base de données en mémoire :
 
 ### 1. Installer PostgreSQL
+
+**Sur Ubuntu/Debian:**
 ```bash
 sudo apt install -y postgresql postgresql-contrib
+```
+
+**Sur CentOS/RHEL:**
+```bash
+sudo dnf install -y postgresql postgresql-server postgresql-contrib
+sudo postgresql-setup --initdb
+sudo systemctl enable --now postgresql
 ```
 
 ### 2. Configurer la base de données

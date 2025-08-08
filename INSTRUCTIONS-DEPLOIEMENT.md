@@ -73,12 +73,16 @@ L'application sera accessible sur `http://localhost:5000`
 ### Étape 3: Déploiement Serveur (10 minutes)
 
 **Option A: Script Automatique (Recommandé)**
+
+*Pour Ubuntu/Debian et CentOS/RHEL:*
 ```bash
-# Sur votre serveur Ubuntu/Debian
+# Sur votre serveur 
 wget https://github.com/VOTRE-NOM-UTILISATEUR/hospital-management-hnsm/raw/main/deploy-server.sh
 chmod +x deploy-server.sh
 sudo ./deploy-server.sh
 ```
+
+ℹ️ **Note**: Le script détecte automatiquement votre système (Ubuntu/Debian ou CentOS) et utilise les bonnes commandes.
 
 **Option B: Installation Manuelle**
 Suivez le guide détaillé dans `DEPLOIEMENT.md`
@@ -131,7 +135,13 @@ Si vous voulez une vraie base de données au lieu de la mémoire :
 ## 🆘 Problèmes Fréquents
 
 ### "Node.js not found"
+**Sur Ubuntu/Debian:**
 Installez Node.js 18+ depuis [nodejs.org](https://nodejs.org)
+
+**Sur CentOS/RHEL:**
+```bash
+sudo dnf module install -y nodejs:18/common
+```
 
 ### "Permission denied"
 Sur Linux/Mac, ajoutez `sudo` avant les commandes
@@ -139,10 +149,23 @@ Sur Linux/Mac, ajoutez `sudo` avant les commandes
 ### "Port 5000 already in use"  
 Changez le port dans le fichier `.env` : `PORT=3000`
 
+### Problèmes CentOS spécifiques
+**SELinux bloque l'application:**
+```bash
+# Autoriser les connexions réseau pour Nginx
+sudo setsebool -P httpd_can_network_connect 1
+```
+
 ### L'application ne s'affiche pas
-Vérifiez que le pare-feu autorise le port 80 :
+**Sur Ubuntu/Debian:**
 ```bash
 sudo ufw allow 80
+```
+
+**Sur CentOS/RHEL:**
+```bash
+sudo firewall-cmd --permanent --add-service=http
+sudo firewall-cmd --reload
 ```
 
 ## ✅ Vérification Finale

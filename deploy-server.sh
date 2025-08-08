@@ -1,14 +1,15 @@
 #!/bin/bash
 
 echo "🏥 Déploiement Serveur - Système de Gestion Hospitalière HNSM"
-echo "==========================================================="
+echo "==============================================================="
+echo "📋 Système détecté: CentOS 10 Stream"
+echo ""
 
 # Variables de configuration
 APP_NAME="hospital-management"
 APP_DIR="/var/www/$APP_NAME"
-SERVICE_USER="www-data"
-NGINX_AVAILABLE="/etc/nginx/sites-available"
-NGINX_ENABLED="/etc/nginx/sites-enabled"
+SERVICE_USER="nginx"
+NGINX_CONF_DIR="/etc/nginx/conf.d"
 
 # Vérifier les privilèges root
 if [ "$EUID" -ne 0 ]; then 
@@ -18,16 +19,15 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 echo "🔄 Mise à jour du système..."
-apt update && apt upgrade -y
+dnf update -y
 
 echo "📦 Installation des dépendances système..."
-apt install -y curl git nginx
+dnf install -y curl git nginx
 
 # Installer Node.js 18+
 if ! command -v node &> /dev/null; then
     echo "📦 Installation de Node.js..."
-    curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-    apt install -y nodejs
+    dnf module install -y nodejs:18/common
 fi
 
 echo "✅ Node.js $(node -v) installé"
@@ -56,7 +56,7 @@ echo "🗄️ Initialisation des données..."
 sudo -u $SERVICE_USER npm run seed
 
 echo "🔧 Configuration de Nginx..."
-cat > $NGINX_AVAILABLE/$APP_NAME << EOF
+cat > $NGINX_CONF_DIR/$APP_NAME.conf << EOF
 server {
     listen 80;
     server_name _;
@@ -82,9 +82,8 @@ server {
 }
 EOF
 
-# Activer le site
-ln -sf $NGINX_AVAILABLE/$APP_NAME $NGINX_ENABLED/
-rm -f $NGINX_ENABLED/default
+# Supprimer la configuration par défaut
+rm -f $NGINX_CONF_DIR/default.conf
 
 # Tester et redémarrer Nginx
 nginx -t
@@ -103,11 +102,14 @@ sudo -u $SERVICE_USER pm2 start ecosystem.config.js
 sudo -u $SERVICE_USER pm2 save
 sudo -u $SERVICE_USER pm2 startup
 
-# Configuration du pare-feu
-if command -v ufw &> /dev/null; then
+# Configuration du pare-feu (firewall-cmd pour CentOS)
+if command -v firewall-cmd &> /dev/null; then
     echo "🔥 Configuration du pare-feu..."
-    ufw allow 'Nginx Full'
-    ufw allow ssh
+    systemctl enable --now firewalld
+    firewall-cmd --permanent --add-service=http
+    firewall-cmd --permanent --add-service=https
+    firewall-cmd --permanent --add-service=ssh
+    firewall-cmd --reload
     echo "✅ Pare-feu configuré"
 fi
 
