@@ -1,0 +1,104 @@
+Cahier des Charges: Application Web de Gestion de
+l’Hôpital National Simão Mendes – Bissau
+1. Contexte et Objectifs
+L’Hôpital National Simão Mendes, principal centre hospitalier de la Guinée-Bissau, fait
+face à des défis dans la gestion administrative, médicale, logistique et financière. Ce
+projet vise à concevoir une application web centralisée, moderne et sécurisée pour
+digitaliser la gestion de l’établissement, améliorer la qualité des soins, optimiser les
+ressources et renforcer la transparence.
+2. Objectifs Généraux
+ Digitaliser la gestion globale de l’hôpital.
+ Centraliser les données des patients, du personnel, des finances et des
+ressources.
+ Faciliter la prise de décision par les autorités sanitaires.
+ Améliorer le service aux patients.
+3. Modules Fonctionnels à Développer
+3.1. Gestion des patients
+ Enregistrement des patients (création de dossier numérique).
+ Historique médical (consultations, hospitalisations, traitements, vaccins,
+analyses).
+ Planification et suivi des rendez-vous.
+ Émission d’ordonnances et de certificats médicaux.
+3.2. Gestion des urgences et hospitalisations
+ Enregistrement des cas d’urgence.
+ Attribution automatique des lits disponibles.
+ Suivi des lits et des chambres en temps réel.
+ Transferts internes entre services.
+3.3. Gestion des consultations
+ Agenda des médecins.
+ Prise de rendez-vous par les patients ou le secrétariat.
+ Suivi des consultations externes et internes.
+3.4. Gestion du personnel
+ Fiche individuelle du personnel médical et administratif.
+ Planning des services et des gardes.
+
+ Suivi des absences, congés, formations.
+3.5. Gestion des ressources pharmaceutiques et matérielles
+ Suivi des stocks de médicaments, vaccins et consommables.
+ Alertes sur les ruptures de stock.
+ Gestion des commandes et des livraisons.
+ Interface avec les pharmacies de l’hôpital.
+3.6. Gestion du laboratoire et des analyses
+ Enregistrement des demandes d’analyses.
+ Suivi des résultats.
+ Interface entre le laboratoire et les services demandeurs.
+3.7. Gestion des finances
+ Suivi des paiements des patients (consultations, hospitalisations, analyses,
+pharmacie).
+ Suivi des recettes et dépenses.
+ Édition de rapports financiers mensuels/annuels.
+3.8. Statistiques et rapports
+ Indicateurs clés de performance (taux d’occupation, taux de mortalité, activité des
+services).
+ Statistiques sanitaires (pathologies, fréquentation, vaccinations).
+ Export des données pour les autorités sanitaires nationales.
+3.9. Gestion des utilisateurs et des droits
+ Gestion des rôles : médecins, infirmiers, secrétaires, administrateurs, laborantins.
+ Historique des connexions.
+ Audit de sécurité.
+4. Exigences Techniques
+4.1. Architecture
+ Application web responsive accessible depuis ordinateurs, tablettes et
+smartphones.
+ Architecture client/serveur.
+ Base de données relationnelle (ex : PostgreSQL, MySQL).
+ Backend en Node.js / Django / Laravel (au choix de l’équipe technique).
+ Frontend en React / Vue.js / Angular.
+4.2. Sécurité
+ Connexions chiffrées (HTTPS).
+ Authentification forte (mot de passe, OTP ou biométrie si disponible).
+
+ Sauvegardes régulières.
+ Conformité aux règles de protection des données de santé (RGPD,
+recommandations OMS).
+4.3. Intégrations futures
+ API pour intégration avec d’autres systèmes de santé nationaux (SIIS, DHIS2,
+etc.).
+ Connecteurs pour réseaux de pharmacies et structures partenaires.
+5. Livrables attendus
+ Spécifications fonctionnelles détaillées.
+ Maquettes UI/UX.
+ Code source de l’application.
+ Documentation technique et utilisateur.
+ Formation des utilisateurs clés.
+ Mise en production.
+ Plan de maintenance et support.
+6. Planning indicatif
+Étape Durée
+estimée
+Analyse des besoins 2 semaines
+Conception fonctionnelle 3 semaines
+Développement itératif 10 semaines
+Tests et validation 3 semaines
+Formation et mise en
+service
+
+2 semaines
+7. Budget prévisionnel
+Un chiffrage précis sera établi après validation des spécifications fonctionnelles et
+techniques.
+8. Conclusion
+Ce projet permettra une transformation digitale majeure du fonctionnement de l’hôpital
+national Simão Mendes, au service de la population bissau-guinéenne. Il contribuera à
+renforcer l’efficacité du personnel médical, à mieux suivre les patients, et à prendre des
+décisions à partir de données fiables et disponibles en temps réel.
