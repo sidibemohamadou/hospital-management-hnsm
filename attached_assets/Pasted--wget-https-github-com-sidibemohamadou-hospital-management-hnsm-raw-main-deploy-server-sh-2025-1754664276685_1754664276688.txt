@@ -1,0 +1,179 @@
+# wget https://github.com/sidibemohamadou/hospital-management-hnsm/raw/main/deploy-server.sh
+--2025-08-08 10:29:37--  https://github.com/sidibemohamadou/hospital-management-hnsm/raw/main/deploy-server.sh
+Resolving github.com (github.com)... 140.82.121.3
+Connecting to github.com (github.com)|140.82.121.3|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/sidibemohamadou/hospital-management-hnsm/main/deploy-server.sh [following]
+--2025-08-08 10:29:37--  https://raw.githubusercontent.com/sidibemohamadou/hospital-management-hnsm/main/deploy-server.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8003::154, 2606:50c0:8000::154, 2606:50c0:8001::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8003::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3890 (3.8K) [text/plain]
+Saving to: ‘deploy-server.sh.1’
+
+deploy-server.sh.1  100%[===================>]   3.80K  --.-KB/s    in 0s
+
+2025-08-08 10:29:37 (70.9 MB/s) - ‘deploy-server.sh.1’ saved [3890/3890]
+
+[root@srv740610 ~]# chmod +x deploy-server.sh
+[root@srv740610 ~]# sudo ./deploy-server.sh
+🏥 Déploiement Serveur - Système de Gestion Hospitalière HNSM
+===========================================================
+🔄 Mise à jour du système...
+./deploy-server.sh: line 21: apt: command not found
+📦 Installation des dépendances système...
+./deploy-server.sh: line 24: apt: command not found
+📦 Installation de Node.js...
+Error: This script is only supported on Debian-based systems.
+./deploy-server.sh: line 30: apt: command not found
+./deploy-server.sh: line 33: node: command not found
+✅ Node.js  installé
+📦 Installation de PM2...
+./deploy-server.sh: line 38: npm: command not found
+📁 Création du répertoire d'application...
+chown: invalid user: ‘www-data:www-data’
+📂 Copie des fichiers...
+chown: invalid user: ‘www-data:www-data’
+📦 Installation des dépendances de l'application...
+sudo: unknown user www-data
+sudo: error initializing audit plugin sudoers_audit
+sudo: unknown user www-data
+sudo: error initializing audit plugin sudoers_audit
+🗄️ Initialisation des données...
+sudo: unknown user www-data
+sudo: error initializing audit plugin sudoers_audit
+🔧 Configuration de Nginx...
+./deploy-server.sh: line 59: /etc/nginx/sites-available/hospital-management: No such file or directory
+ln: failed to create symbolic link '/etc/nginx/sites-enabled/': No such file or directory
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+✅ Nginx configuré et démarré
+🚀 Démarrage de l'application avec PM2...
+sudo: unknown user www-data
+sudo: error initializing audit plugin sudoers_audit
+sudo: unknown user www-data
+sudo: error initializing audit plugin sudoers_audit
+sudo: unknown user www-data
+sudo: error initializing audit plugin sudoers_audit
+
+🎉 Déploiement serveur terminé avec succès!
+
+📊 État des services:
+   Nginx: active
+sudo: unknown user www-data
+sudo: error initializing audit plugin sudoers_audit
+   Application:
+
+🌐 Votre application est accessible sur:
+   http://votre-serveur-ip
+   http://votre-domaine.com (si configuré)
+
+👤 Comptes de test:
+   Admin:   admin     / password
+   Médecin: dr.santos / password
+
+🛠️ Commandes de maintenance:
+   sudo -u www-data pm2 list         # État de l'app
+   sudo -u www-data pm2 logs         # Voir les logs
+   sudo -u www-data pm2 restart all  # Redémarrer
+   systemctl status nginx                 # État Nginx
+[root@srv740610 ~]# ^C
+[root@srv740610 ~]# wget https://raw.githubusercontent.com/sidibemohamadou/hospital-management-hnsm/main/deploy-server-centos-fixed.sh
+--2025-08-08 10:43:11--  https://raw.githubusercontent.com/sidibemohamadou/hospital-management-hnsm/main/deploy-server-centos-fixed.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8000::154, 2606:50c0:8003::154, 2606:50c0:8002::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8000::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5353 (5.2K) [text/plain]
+Saving to: ‘deploy-server-centos-fixed.sh’
+
+deploy-server-cento 100%[===================>]   5.23K  --.-KB/s    in 0s
+
+2025-08-08 10:43:12 (86.2 MB/s) - ‘deploy-server-centos-fixed.sh’ saved [5353/5353]
+
+[root@srv740610 ~]# chmod +x deploy-server-centos-fixed.sh
+[root@srv740610 ~]# ./deploy-server-centos-fixed.sh
+🏥 Déploiement Serveur - Système de Gestion Hospitalière HNSM
+===============================================================
+📋 Système détecté: CentOS 10 Stream
+
+🔄 Mise à jour du système...
+Last metadata expiration check: 1:28:24 ago on Fri 08 Aug 2025 09:15:10 AM EDT.
+Dependencies resolved.
+Nothing to do.
+Complete!
+📦 Installation des dépendances système...
+Last metadata expiration check: 1:28:25 ago on Fri 08 Aug 2025 09:15:10 AM EDT.
+Package curl-8.12.1-2.el10.x86_64 is already installed.
+Package git-2.47.3-1.el10.x86_64 is already installed.
+Package nginx-2:1.26.3-1.el10.x86_64 is already installed.
+Dependencies resolved.
+Nothing to do.
+Complete!
+✅ Node.js v22.14.0 installé
+📁 Création du répertoire d'application...
+📂 Clone du projet depuis GitHub...
+Cloning into 'hospital-management-hnsm'...
+remote: Enumerating objects: 161, done.
+remote: Counting objects: 100% (161/161), done.
+remote: Compressing objects: 100% (123/123), done.
+remote: Total 161 (delta 22), reused 160 (delta 21), pack-reused 0 (from 0)
+Receiving objects: 100% (161/161), 385.40 KiB | 7.01 MiB/s, done.
+Resolving deltas: 100% (22/22), done.
+📦 Installation des dépendances de l'application...
+sudo: npm: command not found
+🏗️ Build de l'application pour la production...
+sudo: npm: command not found
+📂 Configuration des fichiers statiques...
+cp: cannot stat 'dist/public/*': No such file or directory
+🗄️ Initialisation des données...
+sudo: node: command not found
+⚙️ Configuration des variables d'environnement...
+🔧 Configuration de Nginx...
+nginx: [warn] conflicting server name "_" on 0.0.0.0:80, ignored
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+✅ Nginx configuré et démarré
+🚀 Configuration de PM2...
+🚀 Démarrage de l'application avec PM2...
+sudo: pm2: command not found
+sudo: pm2: command not found
+sudo: pm2: command not found
+🔥 Configuration du pare-feu...
+Created symlink '/etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service' → '/usr/lib/systemd/system/firewalld.service'.
+Created symlink '/etc/systemd/system/multi-user.target.wants/firewalld.service' → '/usr/lib/systemd/system/firewalld.service'.
+Warning: ALREADY_ENABLED: http
+success
+Warning: ALREADY_ENABLED: https
+success
+Warning: ALREADY_ENABLED: ssh
+success
+success
+✅ Pare-feu configuré
+🛡️ Configuration SELinux...
+
+🎉 Déploiement serveur terminé avec succès!
+
+📊 État des services:
+   Nginx: active
+   Firewall: active
+sudo: pm2: command not found
+   Application:
+
+🌐 Votre application est accessible sur:
+   http://82.29.174.38
+
+👤 Comptes de test:
+   Admin:   admin     / password
+   Médecin: dr.santos / password
+
+🛠️ Commandes de maintenance:
+   sudo -u nginx pm2 list         # État de l'app
+   sudo -u nginx pm2 logs         # Voir les logs
+   sudo -u nginx pm2 restart all  # Redémarrer
+   systemctl status nginx                 # État Nginx
+
+🔍 Si vous avez toujours une erreur 404:
+   sudo -u nginx pm2 logs         # Vérifiez les logs
+   ls -la /var/www/hospital-management/server/public          # Vérifiez les fichiers
+[root@srv740610 ~]# sudo -u nginx pm2 logs
+sudo: pm2: command not found
