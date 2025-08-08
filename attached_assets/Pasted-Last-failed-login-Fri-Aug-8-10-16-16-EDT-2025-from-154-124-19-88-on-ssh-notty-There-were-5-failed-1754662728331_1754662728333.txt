@@ -1,0 +1,95 @@
+Last failed login: Fri Aug  8 10:16:16 EDT 2025 from 154.124.19.88 on ssh:notty
+There were 5 failed login attempts since the last successful login.
+Last login: Fri Aug  8 09:12:23 2025 from 154.124.19.88
+[root@srv740610 ~]# wget https://github.com/sidibemohamadou/hospital-management-hnsm/raw/main/deploy-server.sh
+--2025-08-08 10:17:26--  https://github.com/sidibemohamadou/hospital-management-hnsm/raw/main/deploy-server.sh
+Resolving github.com (github.com)... 140.82.121.3
+Connecting to github.com (github.com)|140.82.121.3|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/sidibemohamadou/hospital-management-hnsm/main/deploy-server.sh [following]
+--2025-08-08 10:17:27--  https://raw.githubusercontent.com/sidibemohamadou/hospital-management-hnsm/main/deploy-server.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8003::154, 2606:50c0:8000::154, 2606:50c0:8001::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8003::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3762 (3.7K) [text/plain]
+Saving to: ‘deploy-server.sh’
+
+deploy-server.sh    100%[===================>]   3.67K  --.-KB/s    in 0s
+
+2025-08-08 10:17:27 (18.3 MB/s) - ‘deploy-server.sh’ saved [3762/3762]
+
+[root@srv740610 ~]# chmod +x deploy-server.sh
+[root@srv740610 ~]# sudo ./deploy-server.sh
+🏥 Déploiement Serveur - Système de Gestion Hospitalière HNSM
+===========================================================
+🔄 Mise à jour du système...
+./deploy-server.sh: line 21: apt: command not found
+📦 Installation des dépendances système...
+./deploy-server.sh: line 24: apt: command not found
+📦 Installation de Node.js...
+Error: This script is only supported on Debian-based systems.
+./deploy-server.sh: line 30: apt: command not found
+./deploy-server.sh: line 33: node: command not found
+✅ Node.js  installé
+📦 Installation de PM2...
+./deploy-server.sh: line 38: npm: command not found
+📁 Création du répertoire d'application...
+chown: invalid user: ‘www-data:www-data’
+📂 Copie des fichiers...
+ Mise à jour du système...
+./deploy-server.sh: line 21: apt: command not found
+📦 Installation des dépendances système...
+./deploy-server.sh: line 24: apt: command not found
+📦 Installation de Node.js...
+Error: This script is only supported on Debian-based systems.
+./deploy-server.sh: line 30: apt: command not found
+./deploy-server.sh: line 33: node: command not found
+✅ Node.js  installé
+📦 Installation de PM2...
+./deploy-server.sh: line 38: npm: command not found
+📁 Création du répertoire d'application...
+chown: invalid user: ‘www-data:www-data’
+📂 Copie des fichiers...
+hnsm/main/deploy-server.sh [following]
+--2025-08-08 10:17:27--  https://raw.githubusercontent.com/sidibemohamadou/hospital-management-hnsm/main/deploy-server.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8003::154, 2606:50c0:8000::154, 2606:50c0:8001::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8003::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3762 (3.7K) [text/plain]
+Saving to: ‘deploy-server.sh’
+
+deploy-server.sh    100%[===================>]   3.67K  --.-KB/s    in 0s
+
+2025-08-08 10:17:27 (18.3 MB/s) - ‘deploy-server.sh’ saved [3762/3762]
+
+[root@srv740610 ~]# chmod +x deploy-server.sh
+[root@srv740610 ~]# sudo ./deploy-server.sh
+🏥 Déploiement Serveur - Système de Gestion Hospitalière HNSM
+===========================================================
+🔄 Mise à jour du système...
+./deploy-server.sh: line 21: apt: command not found
+📦 Installation des dépendances système...
+./deploy-server.sh: line 24: apt: command not found
+📦 Installation de Node.js...
+Error: This script is only supported on Debian-based systems.
+./deploy-server.sh: line 30: apt: command not found
+./deploy-server.sh: line 33: node: command not found
+✅ Node.js  installé
+📦 Installation de PM2...
+./deploy-server.sh: line 38: npm: command not found
+📁 Création du répertoire d'application...
+chown: invalid user: ‘www-data:www-data’
+📂 Copie des fichiers...
+ Mise à jour du système...
+./deploy-server.sh: line 21: apt: command not found
+📦 Installation des dépendances système...
+./deploy-server.sh: line 24: apt: command not found
+📦 Installation de Node.js...
+Error: This script is only supported on Debian-based systems.
+./deploy-server.sh: line 30: apt: command not found
+./deploy-server.sh: line 33: node: command not found
+✅ Node.js  installé
+📦 Installation de PM2...
+./deploy-server.sh: line 38: npm: command not found
+📁 Création du répertoire d'application...
+chown: invalid user: ‘www-data:www-data’
